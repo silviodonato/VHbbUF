@@ -267,6 +267,7 @@ class Skimmer:
 
     def process(self, indir, prefix="", processlist=[]):
         samples = {}
+        print indir,os.listdir(indir)
         for sample in os.listdir(indir):
             m = re.match(prefix+"(\S+).root", sample)
             if m:
@@ -336,6 +337,7 @@ class Skimmer:
                 lhecounts.clear()
             
             elif key in processlist:
+                print samples[key]
                 tfile = TFile.Open(samples[key], "READ")
                 #ttree = tfile.Get("tree")
                 #if not isinstance(ttree, TTree):
@@ -361,6 +363,7 @@ class Skimmer:
             elif "LHENORM" in key:
                 lhenorm = eval(value)
                 for p in lhenorm:
+#                    print p,lhenorm
                     assert(p in lhecounts)
             
             elif "LHECOUNT" in key:
@@ -385,6 +388,7 @@ if __name__ == "__main__":
     import sys
     
     indir = "/afs/cern.ch/work/d/degrutto/public/MiniAOD/ZnnHbb_Phys14_PU20bx25/skim/"
+    indir = "/networkdata/sdonato/Michele/CMSSW_7_4_2/src/VHbbUF/run2/skim/"
     outdir = "skim/"
     prefix = "skim_"
 
@@ -418,7 +422,7 @@ if __name__ == "__main__":
     #skimmer.split_for_classification(indir=indir, prefix=prefix)
     
     # Prepare counts, countswithpu in the .ini file
-    #skimmer.process(indir=indir, prefix=prefix)
+#    skimmer.process(indir=indir, prefix=prefix)
     #skimmer.process(indir=indir, prefix=prefix, processlist=["ZnnH125"])
     
     # Prepare LHE lhecut, lhenorm, lhecount in the .ini file

@@ -37,10 +37,11 @@ else:
             for j in xrange(njobs):
                 begin = j*maxentries
                 end = (j+1)*maxentries if (j != njobs-1) else -1
-                print "root -b -l -q %s+\(\\\"%s\\\",\\\"%s\\\",%i,%i\)" % (filename,p,method,begin,end)
+                print "root -b -l -q %s+\(\\\"%s\\\",\\\"%s\\\",%i,%i\)  >& log%s  &" % (filename,p,method,begin,end,p),
+                print " >& log",p," &"
                 outfiles[-1].append("Step3_%s_%i_%i.root" % (p, begin, end))
         else:
-            print "root -b -l -q %s+\(\\\"%s\\\",\\\"%s\\\"\)" % (filename,p,method)
+            print "root -b -l -q %s+\(\\\"%s\\\",\\\"%s\\\"\)  >& log%s  &" % (filename,p,method,p)
     print 
     if outfiles:
         print "cd skim"

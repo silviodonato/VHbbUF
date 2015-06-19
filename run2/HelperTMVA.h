@@ -186,8 +186,7 @@ std::vector<std::string> GetInputExpressionsFJReg2() {
 //! BDT regression is applied
 std::map<std::string, std::string> GetWeightExpressions() {
     std::map<std::string, std::string> values;
-    //    values["ZnunuHighPt"     ] = "efflumi * PUweight * triggercorr2012ABCD( (triggerFlags[42]==1 || triggerFlags[39]==1), (triggerFlags[41]==1), METtype1corr.et, max(hJet_csv_nominal[0],hJet_csv_nominal[1]) )";
-    values["ZnunuHighPt"     ] = "efflumi";
+    values["ZnunuHighPt"     ] = "efflumi * PUweight * triggercorr2012ABCD( (triggerFlags[42]==1 || triggerFlags[39]==1), (triggerFlags[41]==1), METtype1corr.et, max(hJet_csv_nominal[0],hJet_csv_nominal[1]) )";
     values["ZnunuMedPt"      ] = "efflumi * PUweight * triggercorr2012ABCD( (triggerFlags[42]==1 || triggerFlags[39]==1), (triggerFlags[41]==1), METtype1corr.et, max(hJet_csv_nominal[0],hJet_csv_nominal[1]) )";
     values["ZnunuLowPt"      ] = "efflumi * PUweight * triggercorr2012ABCD( (triggerFlags[42]==1 || triggerFlags[39]==1), (triggerFlags[41]==1), METtype1corr.et, max(hJet_csv_nominal[0],hJet_csv_nominal[1]) )";
     values["ZnunuLowCSV"     ] = "efflumi * PUweight * triggercorr2012ABCD( (triggerFlags[42]==1 || triggerFlags[39]==1), (triggerFlags[41]==1), METtype1corr.et, max(hJet_csv_nominal[0],hJet_csv_nominal[1]) )";
@@ -196,8 +195,7 @@ std::map<std::string, std::string> GetWeightExpressions() {
 
 std::map<std::string, std::string> GetTriggerExpressions() {
     std::map<std::string, std::string> values;
-    //    values["ZnunuHighPt"     ] = "EVENT.json && ( (190456<=EVENT.run && EVENT.run<=193752 && (triggerFlags[42]==1 || triggerFlags[49]==1 || triggerFlags[40]==1)) || (193752<=EVENT.run && EVENT.run<=208686 && (triggerFlags[42]==1 || triggerFlags[39]==1 || triggerFlags[41]==1)) )";
-    values["ZnunuHighPt"     ] = "";
+    values["ZnunuHighPt"     ] = "EVENT.json && ( (190456<=EVENT.run && EVENT.run<=193752 && (triggerFlags[42]==1 || triggerFlags[49]==1 || triggerFlags[40]==1)) || (193752<=EVENT.run && EVENT.run<=208686 && (triggerFlags[42]==1 || triggerFlags[39]==1 || triggerFlags[41]==1)) )";
     values["ZnunuMedPt"      ] = "EVENT.json && ( (190456<=EVENT.run && EVENT.run<=193752 && (triggerFlags[42]==1 || triggerFlags[49]==1 || triggerFlags[40]==1)) || (193752<=EVENT.run && EVENT.run<=208686 && (triggerFlags[42]==1 || triggerFlags[39]==1 || triggerFlags[41]==1)) )";
     values["ZnunuLowPt"      ] = "EVENT.json && ( (190456<=EVENT.run && EVENT.run<=193752 && (triggerFlags[42]==1 || triggerFlags[49]==1 || triggerFlags[40]==1)) || (193752<=EVENT.run && EVENT.run<=208686 && (triggerFlags[42]==1 || triggerFlags[39]==1 || triggerFlags[41]==1)) )";
     values["ZnunuLowCSV"     ] = "EVENT.json && ( (190456<=EVENT.run && EVENT.run<=193752 && (triggerFlags[42]==1 || triggerFlags[49]==1 || triggerFlags[40]==1)) || (193752<=EVENT.run && EVENT.run<=208686 && (triggerFlags[42]==1 || triggerFlags[39]==1 || triggerFlags[41]==1)) )";
@@ -208,15 +206,12 @@ std::vector<std::string> GetSelExpressions(const std::string id) {
     std::vector<std::string> values;
     if (id == "ZnunuHighPt") {
         values.resize(6, "");
-	//        values[0] = "ZnunuHighPt_VH := (Vtype==4) && METtype1corr.et>170 && HptReg>130 && max(hJet_pt[0],hJet_pt[1])>60 && min(hJet_pt[0],hJet_pt[1])>30 && max(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.679 && min(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.244 && HmassReg<250 && mindPhiMETJet_dPhi>0.5 && abs(deltaPhi(METtype1corr.phi,METnoPUCh.phi))<0.5 && abs(deltaPhi(H.phi,METtype1corr.phi))>2.0 && nalep_pt5_Znn==0 && hbhe && ecalFlag && cschaloFlag && hcallaserFlag && trackingfailureFlag && eebadscFlag && !isBadHcalEvent && hJet_puJetIdL[0]>0 && hJet_puJetIdL[1]>0 && HmassReg>0";
-	//        values[0] = "ZnunuHighPt_VH := (Vtype==4)"; // <-- leave blank for now
-        values[0] = "ZnunuHighPt_VH := (Vtype==4) && HmassReg<250 &&  met_pt>150 &&  max(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0.814 && min(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0.423"; // <-- leave blank for now
-
-        values[1] = "ZnunuHighPt_ZjLF := (Vtype==4) && (Vtype==4) && HmassReg<250 &&  met_pt>150 &&  max(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0. && min(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0.";
-        values[2] = "ZnunuHighPt_ZjHF := (Vtype==4) &&  max(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0.814 && min(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0.423 && (HmassReg<80 || HmassReg>160)";
-        values[3] = "ZnunuHighPt_WjLF := (Vtype==2||Vtype==3) &&  HmassReg<250 &&  met_pt>150 && max(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0. && min(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0.";
-        values[4] = "ZnunuHighPt_WjHF := (Vtype==2||Vtype==3) && max(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0.814 && min(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0.423 && (HmassReg<80 || HmassReg>160)";
-        values[5] = "ZnunuHighPt_TT := (Vtype==2||Vtype==3) && max(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0.814 && min(Jet_btagCSV[hJCidx[0]],Jet_btagCSV[hJCidx[1]])>0.423 && Sum$(Jet_pt>30 && abs(Jet_eta)<4.5 && Jet_puId>0)>2";
+        values[0] = "ZnunuHighPt_VH := (Vtype==4) && METtype1corr.et>170 && HptReg>130 && max(hJet_pt[0],hJet_pt[1])>60 && min(hJet_pt[0],hJet_pt[1])>30 && max(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.679 && min(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.244 && HmassReg<250 && mindPhiMETJet_dPhi>0.5 && abs(deltaPhi(METtype1corr.phi,METnoPUCh.phi))<0.5 && abs(deltaPhi(H.phi,METtype1corr.phi))>2.0 && nalep_pt5_Znn==0 && hbhe && ecalFlag && cschaloFlag && hcallaserFlag && trackingfailureFlag && eebadscFlag && !isBadHcalEvent && hJet_puJetIdL[0]>0 && hJet_puJetIdL[1]>0 && HmassReg>0";
+        values[1] = "ZnunuHighPt_ZjLF := (Vtype==4) && METtype1corr.et>170 && HptReg>130 && max(hJet_pt[0],hJet_pt[1])>60 && min(hJet_pt[0],hJet_pt[1])>30 && max(hJet_csv_nominal[0],hJet_csv_nominal[1])<=0.898 && max(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.244 && HmassReg<250 && mindPhiMETJet_dPhi>0.5 && abs(deltaPhi(METtype1corr.phi,METnoPUCh.phi))<0.5 && hJet_nhf[0]<0.90 && hJet_nhf[1]<0.90 && hJet_nef[0]<0.90 && hJet_nef[1]<0.90 && nalep_pt5_Znn==0 && hbhe && ecalFlag && cschaloFlag && hcallaserFlag && trackingfailureFlag && eebadscFlag && !isBadHcalEvent && hJet_puJetIdL[0]>0 && hJet_puJetIdL[1]>0 && HmassReg>0";
+        values[2] = "ZnunuHighPt_ZjHF := (Vtype==4) && METtype1corr.et>170 && HptReg>130 && max(hJet_pt[0],hJet_pt[1])>60 && min(hJet_pt[0],hJet_pt[1])>30 && max(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.679 && min(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.244 && (HmassReg<100 || 140<HmassReg) && HmassReg<250 && mindPhiMETJet_dPhi>0.5 && abs(deltaPhi(METtype1corr.phi,METnoPUCh.phi))<0.5 && abs(deltaPhi(H.phi,METtype1corr.phi))>2.0 && nalep_pt5_Znn==0 && hbhe && ecalFlag && cschaloFlag && hcallaserFlag && trackingfailureFlag && eebadscFlag && !isBadHcalEvent && hJet_puJetIdL[0]>0 && hJet_puJetIdL[1]>0 && HmassReg>0";
+        values[3] = "ZnunuHighPt_WjLF := (Vtype==2||Vtype==3) && METtype1corr.et>170 && HptReg>130 && max(hJet_pt[0],hJet_pt[1])>60 && min(hJet_pt[0],hJet_pt[1])>30 && max(hJet_csv_nominal[0],hJet_csv_nominal[1])<=0.898 && max(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.244 && HmassReg<250 && mindPhiMETJet_dPhi>0.5 && naJets_Znn==0 && hbhe && ecalFlag && cschaloFlag && hcallaserFlag && trackingfailureFlag && eebadscFlag && !isBadHcalEvent && hJet_puJetIdL[0]>0 && hJet_puJetIdL[1]>0 && HmassReg>0";
+        values[4] = "ZnunuHighPt_WjHF := (Vtype==2||Vtype==3) && METtype1corr.et>170 && HptReg>130 && max(hJet_pt[0],hJet_pt[1])>60 && min(hJet_pt[0],hJet_pt[1])>30 && max(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.679 && min(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.244 && (HmassReg<100 || 140<HmassReg) && HmassReg<250 && mindPhiMETJet_dPhi>0.5 && abs(deltaPhi(H.phi,METtype1corr.phi))>2.0 && naJets_Znn==0 && hbhe && ecalFlag && cschaloFlag && hcallaserFlag && trackingfailureFlag && eebadscFlag && !isBadHcalEvent && hJet_puJetIdL[0]>0 && hJet_puJetIdL[1]>0 && HmassReg>0";
+        values[5] = "ZnunuHighPt_TT := (Vtype==2||Vtype==3) && METtype1corr.et>170 && HptReg>130 && max(hJet_pt[0],hJet_pt[1])>60 && min(hJet_pt[0],hJet_pt[1])>30 && max(hJet_csv_nominal[0],hJet_csv_nominal[1])>0.898 && (HmassReg<100 || 140<HmassReg) && HmassReg<250 && mindPhiMETJet_dPhi>0.5 && naJets_Znn>=1 && hbhe && ecalFlag && cschaloFlag && hcallaserFlag && trackingfailureFlag && eebadscFlag && !isBadHcalEvent && hJet_puJetIdL[0]>0 && hJet_puJetIdL[1]>0 && HmassReg>0";
         return values;
     }
     else if (id == "ZnunuMedPt") {
@@ -276,16 +271,6 @@ std::vector<std::string> GetSelMjjExpressions(const std::string id) {
 
 TObjString selectFlags_id = " \n//ZnunuHighPt \nselectFlags[0][isyst] = \"ZnunuHighPt_VH\"; \nselectFlags[1][isyst] = \"ZnunuHighPt_ZjLF\"; \nselectFlags[2][isyst] = \"ZnunuHighPt_ZjHF\"; \nselectFlags[3][isyst] = \"ZnunuHighPt_WjLF\"; \nselectFlags[4][isyst] = \"ZnunuHighPt_WjHF\"; \nselectFlags[5][isyst] = \"ZnunuHighPt_TT\"; \n//ZnunuMedPt \nselectFlags[0][isyst] = \"ZnunuMedPt_VH\"; \nselectFlags[1][isyst] = \"ZnunuMedPt_ZjLF\"; \nselectFlags[2][isyst] = \"ZnunuMedPt_ZjHF\"; \nselectFlags[3][isyst] = \"ZnunuMedPt_WjLF\"; \nselectFlags[4][isyst] = \"ZnunuMedPt_WjHF\"; \nselectFlags[5][isyst] = \"ZnunuMedPt_TT\"; \n//ZnunuLowPt \nselectFlags[0][isyst] = \"ZnunuLowPt_VH\"; \nselectFlags[1][isyst] = \"ZnunuLowPt_ZjLF\"; \nselectFlags[2][isyst] = \"ZnunuLowPt_ZjHF\"; \nselectFlags[3][isyst] = \"ZnunuLowPt_WjLF\"; \nselectFlags[4][isyst] = \"ZnunuLowPt_WjHF\"; \nselectFlags[5][isyst] = \"ZnunuLowPt_TT\"; \n//ZnunuLowCSV \nselectFlags[0][isyst] = \"ZnunuLowCSV_VH\"; \nselectFlags[1][isyst] = \"ZnunuLowCSV_ZjHF\"; \nselectFlags[2][isyst] = \"ZnunuLowCSV_WjHF\"; ";
 
-
-std::vector<std::vector<std::pair<std::string, std::string> > > GetSystExpressions() {                                                                                                               
-  std::vector<std::vector<std::pair<std::string, std::string> > > values;                                                                                                                          
-  values.resize(1);
-  values[0].resize(1); // NONE
-
-  return values;
-
- }
-/*
 std::vector<std::vector<std::pair<std::string, std::string> > > GetSystExpressions() {
     std::vector<std::vector<std::pair<std::string, std::string> > > values;
     values.resize(15);
@@ -365,7 +350,6 @@ std::vector<std::vector<std::pair<std::string, std::string> > > GetSystExpressio
     values[14][0] = make_pair("triggercorr2012ABCD", "triggercorr2012ABCD_CSV_down");
     return values;
 }
-*/
 
 TObjString systFlags_id = " \nsystFlags[0] = \"NONE\"; \nsystFlags[1] = \"CMS_vhbb_res_j_Znn_8TeVUp\"; \nsystFlags[2] = \"CMS_vhbb_res_j_Znn_8TeVDown\"; \nsystFlags[3] = \"CMS_vhbb_scale_j_Znn_8TeVUp\"; \nsystFlags[4] = \"CMS_vhbb_scale_j_Znn_8TeVDown\"; \nsystFlags[5] = \"CMS_vhbb_eff_bUp\"; \nsystFlags[6] = \"CMS_vhbb_eff_bDown\"; \nsystFlags[7] = \"CMS_vhbb_fake_b_8TeVUp\"; \nsystFlags[8] = \"CMS_vhbb_fake_b_8TeVDown\"; \nsystFlags[9] = \"UEPSUp\"; \nsystFlags[10] = \"UEPSDown\"; \nsystFlags[11] = \"CMS_vhbb_trigger_MET_Znn_8TeVUp\"; \nsystFlags[12] = \"CMS_vhbb_trigger_MET_Znn_8TeVDown\"; \nsystFlags[13] = \"CMS_vhbb_trigger_METCSV_Znn_8TeVUp\"; \nsystFlags[14] = \"CMS_vhbb_trigger_METCSV_Znn_8TeVDown\"; ";
 

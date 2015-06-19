@@ -599,6 +599,7 @@ if __name__ == "__main__":
     reader.read(ini)
 
     # Write codes
-    #reader.write_HelperNtuples()
-    reader.write_HelperTMVA()
+    reader.write_HelperNtuples()
+#    reader.write_HelperTMVA()
+    
 

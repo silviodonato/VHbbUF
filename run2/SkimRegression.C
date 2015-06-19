@@ -25,7 +25,8 @@ void SkimRegression(TString process="ZnnH125", Long64_t skimentries=1000000000)
     TString dijet   = "";
 
 
-    TString dirMC  = "/afs/cern.ch/work/d/degrutto/public/MiniAOD/ZnnHbb_Phys14_PU20bx25/skimV11/";
+//    TString dirMC  = "/afs/cern.ch/work/d/degrutto/public/MiniAOD/ZnnHbb_Phys14_PU20bx25/skimV11/";
+    TString dirMC  = "/networkdata/sdonato/Michele/CMSSW_7_4_2/src/VHbbUF/run2/skim/";
     TString prefix  = "skim_";
     TString suffix  = ".root";
     TString outdir  = "skim_regression/";                                                                                                                                                       

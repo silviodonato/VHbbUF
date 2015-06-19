@@ -21,10 +21,10 @@ source run_Skim.sh
 
 3. Use `SkimRegression.C` to skim the Step2 ntuples for BDTG regression training. Make sure `HelperNtuples.h` is updated.
  in `inputstep2.ini` Section [Skim], edit regression, fjregression
- enable reader.write_HelperNtuples(), disable the rest
+ enable reader.write_HelperNtuples() in pyhelper.py, disable the rest
 
 python pyhelper.py
- copy printout to HelperNtuples.h
+ copy printout to HelperNtuples.h: python pyhelper.py > HelperNtuples.h
  now run the skim for ak5 regression
 
 source run_SkimRegression.sh
@@ -34,9 +34,9 @@ source run_SkimRegressionFJ.sh
 4. Use `TrainRegression.C` and `TrainRegressionFJ.C` to produce the BDT regression .xml files. Make sure `HelperTMVA.h` is updated.
  in `inputstep2.ini` Section [BDT Regression Variable], edit the variables to use
  in `inputstep2.ini` Section [BDT Regression FJ Variable], edit the variables to use
- enable reader.write_HelperTMVA(), disable the rest
+ enable reader.write_HelperTMVA() in pyhelper.py, disable the rest
 python pyhelper.py
-copy printout to HelperTMVA.h
+copy printout to HelperTMVA.h: python pyhelper.py > HelperTMVA.h
  now run the BDT regression
 python run_TrainRegression.py
 cp weights/TMVARegression_BDTG.weights.xml weights/TMVARegression_BDTG.testweights.xml
@@ -52,13 +52,13 @@ python ComparePtOffset.py
 python CompareMass_sig.py
 
 5. Update `HelperNtuples.h` to have all the correct numbers.
-enable skimmer.process(), disable the rest
+enable skimmer.process() in skimmer.py, disable the rest
 python skimmer.py inputstep2.ini
  copy printout to inputstep2.ini Section [Process]
- enable skimmer.stitch(), disable the rest
+ enable skimmer.stitch() in skimmer.py, disable the rest
 python skimmer.py inputstep2.ini
  copy printout to inputstep2.ini Section [Stitch]
- enable reader.write_HelperNtuples(), disable the rest
+ enable reader.write_HelperNtuples() in pyhelper.py, disable the rest
 python pyhelper.py
  copy printout to HelperNtuples.h
 
