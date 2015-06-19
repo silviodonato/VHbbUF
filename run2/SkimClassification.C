@@ -1,5 +1,5 @@
 #include <iostream>
-
+//        cout << endl << "BBBBB" << endl << endl;
 #include "TFile.h"
 #include "TTree.h"
 #include "TTreeFormula.h"
@@ -96,6 +96,8 @@ void SkimClassification(TString process="ZnnH125")
         ResetDeleteBranches(t1);
         ResetDeleteBranches(t2);
         
+        cout << endl << "BBBBB" << endl << endl;
+        cout << endl << selExpressions.at(i).c_str() << endl << endl;
         ttf = new TTreeFormula(Form("ttfsel%i", i), selExpressions.at(i).c_str(), tree);
         ttf->SetQuickLoad(1);
         TTreeFormula *ttf1 = new TTreeFormula(Form("ttfeven%i", i), evenselection, tree);

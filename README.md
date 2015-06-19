@@ -4,6 +4,7 @@ Analysis
 
 .. NOTE::
 All the scripts must be run from the base directory.
+Use: source /cvmfs/cms.cern.ch/slc5_amd64_gcc462/lcg/root/5.34.02-cms/bin/thisroot.sh
 1. Use maketier2list.py to transfer Step 2 ntuples from Pisa to FNAL.
  edit the directories in the script before run.
 

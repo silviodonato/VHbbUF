@@ -25,7 +25,7 @@ root -l -b -q SkimClassification.C+\(\"WJets\"\)  >& logSkimClassWJets &
 root -l -b -q SkimClassification.C+\(\"ZJets\"\)  >& logSkimClassZJets &
 root -l -b -q SkimClassification.C+\(\"ZJetsHT200\"\)  >& logSkimClassZJetsHT200 &
 root -l -b -q SkimClassification.C+\(\"ZJetsHT400\"\)  >& logSkimClassZJetsHT400 &
-root -l -b -q SkimClassification.C+\(\"ZJetsHW\"\)  >& logSkimClassZJetsHW &
+#root -l -b -q SkimClassification.C+\(\"ZJetsHW\"\)  >& logSkimClassZJetsHW &
 #root -l -b -q SkimClassification.C+\(\"DYJetsM50\"\)  >& logSkimClass &
 #root -l -b -q SkimClassification.C+\(\"DYJetsPtZ70\"\)  >& logSkimClass &
 #root -l -b -q SkimClassification.C+\(\"DYJetsPtZ100\"\)  >& logSkimClass &
@@ -33,7 +33,7 @@ root -l -b -q SkimClassification.C+\(\"ZJetsHW\"\)  >& logSkimClassZJetsHW &
 #root -l -b -q SkimClassification.C+\(\"WZ\"\)  >& logSkimClass &
 #root -l -b -q SkimClassification.C+\(\"ZZ\"\)  >& logSkimClass &
 #root -l -b -q SkimClassification.C+\(\"TTJets\"\)  >& logSkimClass &
-root -l -b -q SkimClassification.C+\(\"TTMadv2\"\)  >& logSkimClassTTMadv2 &
+#root -l -b -q SkimClassification.C+\(\"TTMadv2\"\)  >& logSkimClassTTMadv2 &
 root -l -b -q SkimClassification.C+\(\"TTPythia8\"\)  >& logSkimClassTTPythia8 &
 #root -l -b -q SkimClassification.C+\(\"T_tW\"\)  >& logSkimClass &
 #root -l -b -q SkimClassification.C+\(\"Tbar_tW\"\)  >& logSkimClass &
@@ -41,7 +41,7 @@ root -l -b -q SkimClassification.C+\(\"TTPythia8\"\)  >& logSkimClassTTPythia8 &
 #root -l -b -q SkimClassification.C+\(\"Tbar_s\"\)  >& logSkimClass &
 #root -l -b -q SkimClassification.C+\(\"T_t\"\)  >& logSkimClass &
 #root -l -b -q SkimClassification.C+\(\"Tbar_t\"\)  >& logSkimClass &
-root -l -b -q SkimClassification.C+\(\"s_Top\"\)  >& logSkimClasss_Top &
+root -l -b -q SkimClassification.C+\(\"T_s\"\)  >& logSkimClassT_s &
 #root -l -b -q SkimClassification.C+\(\"QCDPt50\"\)  >& logSkimClass &
 root -l -b -q SkimClassification.C+\(\"QCD\"\)  >& logSkimClassQCD &
 #root -l -b -q SkimClassification.C+\(\"QCDPt80\"\)  >& logSkimClass &
