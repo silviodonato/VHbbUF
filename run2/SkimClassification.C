@@ -39,8 +39,10 @@ void SkimClassification(TString process="ZnnH125")
     //TString dijet   = "DiJetPt_";
     //TString dirMC   = "dcache:/pnfs/cms/WAX/resilient/jiafu/ZnunuHbb/" + tagMC + "/";
     //TString dirData = "dcache:/pnfs/cms/WAX/resilient/jiafu/ZnunuHbb/" + tagData + "/";
-    TString indir   = "/afs/cern.ch/work/d/degrutto/public/MiniAOD/ZnnHbb_Phys14_PU20bx25/skimV11/step3/";
-    TString outdir  = "/afs/cern.ch/work/d/degrutto/public/MiniAOD/ZnnHbb_Phys14_PU20bx25/skimV11/step3/skim_ZnnH_classification/";
+//    TString indir   = "/afs/cern.ch/work/d/degrutto/public/MiniAOD/ZnnHbb_Phys14_PU20bx25/skimV11/step3/";
+//    TString outdir  = "/afs/cern.ch/work/d/degrutto/public/MiniAOD/ZnnHbb_Phys14_PU20bx25/skimV11/step3/skim_ZnnH_classification/";
+    TString indir   = "/networkdata/sdonato/Michele/CMSSW_7_4_2/src/VHbbUF/run2/skim/step3/";
+    TString outdir  = "/networkdata/sdonato/Michele/CMSSW_7_4_2/src/VHbbUF/run2/skim/step3/skim_ZnnH_classification/";
     TString prefix  = "Step3_";
     TString suffix  = ".root";
 

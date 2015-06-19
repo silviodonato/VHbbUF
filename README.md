@@ -60,7 +60,7 @@ python skimmer.py inputstep2.ini
  copy printout to inputstep2.ini Section [Stitch]
  enable reader.write_HelperNtuples() in pyhelper.py, disable the rest
 python pyhelper.py
- copy printout to HelperNtuples.h
+ copy printout to HelperNtuples.h: python pyhelper.py > HelperNtuples.h
 
 6. Use `GrowTree.C` to create Step 3's.
 python run_GrowTree.py
