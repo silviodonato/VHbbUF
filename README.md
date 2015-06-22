@@ -76,9 +76,9 @@ source run_TrainBDT.sh
  in `inputstep2.ini` Section [Weight], edit the MC event weights
  in `inputstep2.ini` Section [Trigger], edit the Data trigger
  in `inputstep2.ini` Section [Selection], edit the signal and control regions
- enable reader.write_HelperTMVA(), disable the rest
+ enable reader.write_HelperTMVA() in pyhelper.py, disable the rest
 python pyhelper.py
- copy printout to HelperTMVA.h
+ copy printout to HelperTMVA.h: python pyhelper.py > HelperTMVA.h
  in `TrimTree.C`, edit the BDT .xml files to load, then run
 python run_TrimTree.py
  stitch the Step 4's (remember to edit $DIR in the script)
